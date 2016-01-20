@@ -19,7 +19,7 @@ class SomniAlert:UIView {
     
     /**
      Default Initializer
-     */
+    */
     init(frame:CGRect, viewToSitOnTopOf mainView:UIView){
         
         self.mainView = mainView
@@ -36,5 +36,15 @@ class SomniAlert:UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    /**
+      Adds a shadow to the alert.
+     */
+    func addShadow(color:CGColorRef = UIColor.blackColor().CGColor, opacity:Float = 0.4, offset:CGSize = CGSize(width: 0, height: 10), radius:CGFloat = 5.0){
+        
+        self.layer.shadowColor = color
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = radius
+        self.layer.shadowOffset = offset
+    }
+
 }

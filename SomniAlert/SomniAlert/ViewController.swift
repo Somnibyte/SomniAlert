@@ -16,7 +16,12 @@ class ViewController: UIViewController {
         
         // Initialize the SomniAlert
         var alert = SomniAlert(frame: CGRect(), viewToSitOnTopOf: self.view)
+    
         
+        //Initialize any configurations
+        alert.addShadow()
+        
+        // Add the alert to your view
         self.view.addSubview(alert)
     }
 
