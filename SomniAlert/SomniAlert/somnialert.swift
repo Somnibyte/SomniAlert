@@ -37,24 +37,33 @@ class SomniAlert:UIView {
         slantedView.transform = CGAffineTransformMakeRotation(-50.0)
         self.addSubview(slantedView)
         
-        
-        
+        // Hide the alert until activated
+        self.alpha = 0.0
     }
 
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     /**
-      Adds a shadow to the alert.
+     Displays the alert
      */
-    func addShadow(color:CGColorRef = UIColor.blackColor().CGColor, opacity:Float = 0.4, offset:CGSize = CGSize(width: 0, height: 10), radius:CGFloat = 5.0){
+    func showAlert(){
         
-        self.layer.shadowColor = color
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowRadius = radius
-        self.layer.shadowOffset = offset
+        // Setup blur effect
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let visualEffect = UIVisualEffectView()
+        
+        visualEffect.effect = blurEffect
+        visualEffect.frame = self.mainView.frame
+
+        // Animate somnialert
+        UIView.animateWithDuration(1.0) { () -> Void in
+            self.mainView.insertSubview(visualEffect, belowSubview: self)
+            self.alpha = 1.0
+        }
     }
 
 }
