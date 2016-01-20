@@ -11,14 +11,14 @@ import UIKit
 
 class SomniAlert:UIView {
     
-    /** 
+    /**
      The mainView is the view that the SomniAlert sits on top of. The mainView, in this example, is the view used in the ViewController.swift file.
-    */
+     */
     var mainView:UIView
     
     /**
      Default Initializer
-    */
+     */
     init(frame:CGRect, viewToSitOnTopOf mainView:UIView){
         
         self.mainView = mainView
@@ -40,12 +40,12 @@ class SomniAlert:UIView {
         // Hide the alert until activated
         self.alpha = 0.0
     }
-
-
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     
     /**
      Displays the alert
@@ -58,12 +58,12 @@ class SomniAlert:UIView {
         
         visualEffect.effect = blurEffect
         visualEffect.frame = self.mainView.frame
-
+        
         // Animate somnialert
         UIView.animateWithDuration(1.0) { () -> Void in
             self.mainView.insertSubview(visualEffect, belowSubview: self)
             self.alpha = 1.0
         }
     }
-
+    
 }
