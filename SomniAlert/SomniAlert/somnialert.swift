@@ -63,7 +63,7 @@ class SomniAlert: UIView {
         viewsDict["closeButton"] = self.closeButton
 
 		let slantedViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(-50)-[slantedView]-(-50)-|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: viewsDict)
-		let slantedViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(-40)-[slantedView]-320-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
+		let slantedViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(-40)-[slantedView]-210-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
 		self.addConstraints(slantedViewConstraint_H)
 		self.addConstraints(slantedViewConstraint_V)
 
