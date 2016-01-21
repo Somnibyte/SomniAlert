@@ -15,6 +15,7 @@
 		9A661B941C4F325000F1AEFE /* SomniAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661B931C4F325000F1AEFE /* SomniAlertTests.swift */; };
 		9A661B9F1C4F325000F1AEFE /* SomniAlertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661B9E1C4F325000F1AEFE /* SomniAlertUITests.swift */; };
 		9A661BAE1C4F328B00F1AEFE /* somnialert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661BAD1C4F328B00F1AEFE /* somnialert.swift */; };
+		9AF5C83C1C504CE0001F8F32 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF5C83B1C504CE0001F8F32 /* close.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9A661B9E1C4F325000F1AEFE /* SomniAlertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomniAlertUITests.swift; sourceTree = "<group>"; };
 		9A661BA01C4F325000F1AEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A661BAD1C4F328B00F1AEFE /* somnialert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = somnialert.swift; sourceTree = "<group>"; };
+		9AF5C83B1C504CE0001F8F32 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +133,18 @@
 		9A661BAC1C4F327900F1AEFE /* SomniAlert Library */ = {
 			isa = PBXGroup;
 			children = (
+				9AF5C83A1C504C72001F8F32 /* Icons */,
 				9A661BAD1C4F328B00F1AEFE /* somnialert.swift */,
 			);
 			name = "SomniAlert Library";
+			sourceTree = "<group>";
+		};
+		9AF5C83A1C504C72001F8F32 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				9AF5C83B1C504CE0001F8F32 /* close.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 			files = (
 				9A661B891C4F325000F1AEFE /* LaunchScreen.storyboard in Resources */,
 				9A661B861C4F325000F1AEFE /* Assets.xcassets in Resources */,
+				9AF5C83C1C504CE0001F8F32 /* close.png in Resources */,
 				9A661B841C4F325000F1AEFE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +508,7 @@
 				9A661BA51C4F325000F1AEFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A661BA61C4F325000F1AEFE /* Build configuration list for PBXNativeTarget "SomniAlertTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +517,7 @@
 				9A661BA81C4F325000F1AEFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A661BA91C4F325000F1AEFE /* Build configuration list for PBXNativeTarget "SomniAlertUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +526,7 @@
 				9A661BAB1C4F325000F1AEFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

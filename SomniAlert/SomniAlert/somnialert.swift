@@ -15,6 +15,19 @@ class SomniAlert:UIView {
      The mainView is the view that the SomniAlert sits on top of. The mainView, in this example, is the view used in the ViewController.swift file.
      */
     var mainView:UIView
+    /**
+     The slanted view is the view that is slanted and is clipped onto the alert's view
+     */
+    var slantedView:UIView = UIView()
+    /**
+     This variable allows you to choose the image name for the close button
+     */
+    var closeIconImageName:String = "close"
+    
+    var closeButton:UIButton!
+    let blurEffect = UIBlurEffect(style: .Dark)
+    let visualEffect = UIVisualEffectView()
+    
     
     /**
      Default Initializer
@@ -26,16 +39,23 @@ class SomniAlert:UIView {
         
         
         // Configurations for the main SomniAlert view
-        self.frame = CGRect(origin: self.mainView.center, size: CGSize(width: 200, height: 300))
+        self.frame = CGRect(x: self.mainView.center.x, y: self.mainView.center.y-10, width: 200, height: 300)
         self.center = self.mainView.center // Place the view in the center of the users view
         self.backgroundColor = UIColor.whiteColor() // Default background: white
         self.clipsToBounds = true
         
         // Configurations for the slanted view
-        let slantedView = UIView(frame: CGRect(x: -10, y: -10, width: self.frame.size.width * 2, height: self.frame.size.height/2))
+        slantedView = UIView(frame: CGRect(x: -12, y: -10, width: self.frame.size.width * 2, height: self.frame.size.height/2))
         slantedView.backgroundColor = UIColor(red:0.204, green:0.231, blue:0.259, alpha:1.00)
         slantedView.transform = CGAffineTransformMakeRotation(-50.0)
         self.addSubview(slantedView)
+        
+        
+        // Configurations for icons 
+        closeButton = UIButton(frame: CGRect(x: self.frame.size.width - 30, y: 10, width: 25, height: 25))
+        closeButton.setImage(UIImage(named: closeIconImageName), forState: .Normal)
+        closeButton.addTarget(self, action: Selector("closeAlert"), forControlEvents: .TouchUpInside)
+        self.addSubview(closeButton)
         
         // Hide the alert until activated
         self.alpha = 0.0
@@ -52,18 +72,22 @@ class SomniAlert:UIView {
      */
     func showAlert(){
         
-        // Setup blur effect
-        let blurEffect = UIBlurEffect(style: .Dark)
-        let visualEffect = UIVisualEffectView()
-        
-        visualEffect.effect = blurEffect
-        visualEffect.frame = self.mainView.frame
+        self.visualEffect.effect = blurEffect
+        self.visualEffect.frame = self.mainView.frame
         
         // Animate somnialert
         UIView.animateWithDuration(1.0) { () -> Void in
-            self.mainView.insertSubview(visualEffect, belowSubview: self)
+            self.mainView.insertSubview(self.visualEffect, belowSubview: self)
+            self.frame.origin.y += 10
             self.alpha = 1.0
         }
     }
     
+    /**
+        Closes the alert
+    */
+    func closeAlert(){
+        self.removeFromSuperview()
+        self.visualEffect.removeFromSuperview()
+    }
 }
