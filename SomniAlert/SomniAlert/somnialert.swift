@@ -82,7 +82,7 @@ class SomniAlert: UIView {
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
+    
 	/**
 	 Adjusts the alert to an appropriate size of the users device
 	 */
