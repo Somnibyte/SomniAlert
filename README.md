@@ -1,7 +1,7 @@
 # SomniAlert (WIP)
 A beautiful UIAlertView-like modal made with swift
 
-![](http://imgur.com/XmDndyC)
+![](http://i.imgur.com/XmDndyC.png)
 
 #License
 
