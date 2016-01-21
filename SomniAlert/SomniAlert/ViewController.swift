@@ -24,7 +24,8 @@ class ViewController: UIViewController {
 		alert.setConstraints()
 
 		// Display the alert
-		alert.showAlert()
+        alert.showAlert(typeOfAlert: .Notification, miniMessageUnderImage: "Hey!", messageToDisplay: "What's up")
+
 	}
 
 	override func didReceiveMemoryWarning() {

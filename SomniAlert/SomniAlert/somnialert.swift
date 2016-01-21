@@ -24,7 +24,23 @@ class SomniAlert: UIView {
 	 */
 	var closeIconImageName: String = "close"
 
+	/**
+	 Alert modes
+	 */
+	enum alertMode {
+		case Success
+		case Failure
+		case Trash
+		case Notification
+	}
+
 	var closeButton: UIButton!
+
+	/**
+	 Image that is on the top of the alert and next to the close button
+	 */
+	var alertTypeImageView: UIImageView!
+
 	let blurEffect = UIBlurEffect(style: .Dark)
 	let visualEffect = UIVisualEffectView()
 
@@ -37,7 +53,6 @@ class SomniAlert: UIView {
 		super.init(frame: frame)
 
 		// Configurations for the main SomniAlert view
-		self.frame = CGRect(x: self.mainView.center.x, y: self.mainView.center.y - 10, width: 200, height: 300)
 		self.center = self.mainView.center // Place the view in the center of the users view
 		self.backgroundColor = UIColor.whiteColor() // Default background: white
 		self.clipsToBounds = true
@@ -49,7 +64,7 @@ class SomniAlert: UIView {
 		self.addSubview(slantedView)
 
 		// Configurations for icons
-		closeButton = UIButton(frame: CGRect(x: self.frame.size.width - 30, y: 10, width: 25, height: 25))
+		closeButton = UIButton(frame: CGRect(x: self.frame.size.width - 30, y: 10, width: 10, height: 10))
 		closeButton.setImage(UIImage(named: closeIconImageName), forState: .Normal)
 		closeButton.addTarget(self, action: Selector("closeAlert"), forControlEvents: .TouchUpInside)
 		self.addSubview(closeButton)
@@ -60,7 +75,7 @@ class SomniAlert: UIView {
 		self.slantedView.translatesAutoresizingMaskIntoConstraints = false
 		var viewsDict = Dictionary<String, UIView>()
 		viewsDict["slantedView"] = self.slantedView
-        viewsDict["closeButton"] = self.closeButton
+		viewsDict["closeButton"] = self.closeButton
 
 		let slantedViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(-50)-[slantedView]-(-50)-|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: viewsDict)
 		let slantedViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(-40)-[slantedView]-210-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
@@ -68,12 +83,18 @@ class SomniAlert: UIView {
 		self.addConstraints(slantedViewConstraint_V)
 
 		// Close Button
-        self.closeButton.translatesAutoresizingMaskIntoConstraints = false
-        let closeButtonConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(10)-[closeButton]", options: NSLayoutFormatOptions.AlignAllRight, metrics: nil, views: viewsDict)
-         let closeButtonConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(10)-[closeButton]", options: NSLayoutFormatOptions.AlignAllTop, metrics: nil, views: viewsDict)
-        self.addConstraints(closeButtonConstraint_H)
-        self.addConstraints(closeButtonConstraint_V)
-        
+		self.closeButton.translatesAutoresizingMaskIntoConstraints = false
+		let closeButtonConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(10)-[closeButton]", options: NSLayoutFormatOptions.AlignAllRight, metrics: nil, views: viewsDict)
+		let closeButtonConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(10)-[closeButton]", options: NSLayoutFormatOptions.AlignAllTop, metrics: nil, views: viewsDict)
+		self.addConstraints(closeButtonConstraint_H)
+		self.addConstraints(closeButtonConstraint_V)
+
+		// Configurations for alertTypeImageView
+		alertTypeImageView = UIImageView()
+		alertTypeImageView.frame.size.width = 64
+		alertTypeImageView.frame.size.height = 64
+		alertTypeImageView.center = CGPointMake(self.mainView.bounds.width / 2 - 30, 40)
+		self.addSubview(alertTypeImageView)
 
 		// Hide the alert until activated
 		self.alpha = 0.0
@@ -82,7 +103,7 @@ class SomniAlert: UIView {
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-    
+
 	/**
 	 Adjusts the alert to an appropriate size of the users device
 	 */
@@ -93,8 +114,8 @@ class SomniAlert: UIView {
 		viewsDict["alertView"] = self
 
 		// Incorporate the auto layout mechanisms onto the mainView
-		let alertViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-50-[alertView]-50-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
-		let alertViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-120-[alertView]-120-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
+		let alertViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-30-[alertView]-30-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
+		let alertViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[alertView]-100-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
 		self.mainView.addConstraints(alertViewConstraint_H)
 		self.mainView.addConstraints(alertViewConstraint_V)
 	}
@@ -102,8 +123,21 @@ class SomniAlert: UIView {
 	/**
 	 Displays the alert
 	 */
-	func showAlert() {
+    func showAlert(typeOfAlert alertType: alertMode, miniMessageUnderImage minimessage:String, messageToDisplay message: String) {
 
+		// Setup the alert image and message
+		switch (alertType) {
+		case .Success:
+			self.alertTypeImageView.image = UIImage(named: "success")
+		case .Failure:
+			self.alertTypeImageView.image = UIImage(named: "failed")
+		case .Notification:
+			self.alertTypeImageView.image = UIImage(named: "notification")
+		case .Trash:
+			self.alertTypeImageView.image = UIImage(named: "trash")
+		}
+
+		// Prepare the alert
 		self.visualEffect.effect = blurEffect
 		self.visualEffect.frame = self.mainView.frame
 
