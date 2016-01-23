@@ -66,6 +66,7 @@ class SomniAlert: UIView {
 		slantedView = UIView(frame: CGRect(x: -50, y: 0, width: self.frame.size.width * 2, height: 200))
 		slantedView.backgroundColor = UIColor(red: 0.204, green: 0.231, blue: 0.259, alpha: 1.00)
 		slantedView.transform = CGAffineTransformMakeRotation(50.0)
+    slantedView.layer.shouldRasterize = true
 		self.addSubview(slantedView)
 
 		// Configurations for icons

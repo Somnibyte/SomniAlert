@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A230C111C515693000A7CCD /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A230C101C515693000A7CCD /* trash.png */; };
-		9A230C131C515698000A7CCD /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A230C121C515698000A7CCD /* notification.png */; };
-		9A230C151C51569E000A7CCD /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A230C141C51569E000A7CCD /* success.png */; };
-		9A230C191C515933000A7CCD /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A230C181C515933000A7CCD /* failed.png */; };
 		9A661B7F1C4F325000F1AEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661B7E1C4F325000F1AEFE /* AppDelegate.swift */; };
 		9A661B811C4F325000F1AEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661B801C4F325000F1AEFE /* ViewController.swift */; };
 		9A661B841C4F325000F1AEFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A661B821C4F325000F1AEFE /* Main.storyboard */; };
@@ -19,7 +15,7 @@
 		9A661B941C4F325000F1AEFE /* SomniAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661B931C4F325000F1AEFE /* SomniAlertTests.swift */; };
 		9A661B9F1C4F325000F1AEFE /* SomniAlertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661B9E1C4F325000F1AEFE /* SomniAlertUITests.swift */; };
 		9A661BAE1C4F328B00F1AEFE /* somnialert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A661BAD1C4F328B00F1AEFE /* somnialert.swift */; };
-		9AA2AA261C5161A200484869 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA2AA251C5161A200484869 /* close.png */; };
+		ECF52F631C54131100FBC6BA /* SomniAlertIconset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF52F621C54131100FBC6BA /* SomniAlertIconset.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A230C101C515693000A7CCD /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
-		9A230C121C515698000A7CCD /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
-		9A230C141C51569E000A7CCD /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
-		9A230C181C515933000A7CCD /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		9A661B7B1C4F325000F1AEFE /* SomniAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomniAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A661B7E1C4F325000F1AEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A661B801C4F325000F1AEFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +49,8 @@
 		9A661B9A1C4F325000F1AEFE /* SomniAlertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomniAlertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A661B9E1C4F325000F1AEFE /* SomniAlertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomniAlertUITests.swift; sourceTree = "<group>"; };
 		9A661BA01C4F325000F1AEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A661BAD1C4F328B00F1AEFE /* somnialert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = somnialert.swift; sourceTree = "<group>"; };
-		9AA2AA251C5161A200484869 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		9A661BAD1C4F328B00F1AEFE /* somnialert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = somnialert.swift; path = ../../SomniAlertLibrary/somnialert.swift; sourceTree = "<group>"; };
+		ECF52F621C54131100FBC6BA /* SomniAlertIconset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = SomniAlertIconset.xcassets; path = ../../SomniAlertLibrary/SomniAlertIconset.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +135,7 @@
 			children = (
 				9AF5C83A1C504C72001F8F32 /* Icons */,
 				9A661BAD1C4F328B00F1AEFE /* somnialert.swift */,
+				ECF52F621C54131100FBC6BA /* SomniAlertIconset.xcassets */,
 			);
 			name = "SomniAlert Library";
 			sourceTree = "<group>";
@@ -150,11 +143,6 @@
 		9AF5C83A1C504C72001F8F32 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				9A230C121C515698000A7CCD /* notification.png */,
-				9AA2AA251C5161A200484869 /* close.png */,
-				9A230C181C515933000A7CCD /* failed.png */,
-				9A230C141C51569E000A7CCD /* success.png */,
-				9A230C101C515693000A7CCD /* trash.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -266,11 +254,7 @@
 				9A661B891C4F325000F1AEFE /* LaunchScreen.storyboard in Resources */,
 				9A661B861C4F325000F1AEFE /* Assets.xcassets in Resources */,
 				9A661B841C4F325000F1AEFE /* Main.storyboard in Resources */,
-				9A230C131C515698000A7CCD /* notification.png in Resources */,
-				9A230C191C515933000A7CCD /* failed.png in Resources */,
-				9AA2AA261C5161A200484869 /* close.png in Resources */,
-				9A230C151C51569E000A7CCD /* success.png in Resources */,
-				9A230C111C515693000A7CCD /* trash.png in Resources */,
+				ECF52F631C54131100FBC6BA /* SomniAlertIconset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
