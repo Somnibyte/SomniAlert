@@ -57,7 +57,7 @@
 		9A661B9A1C4F325000F1AEFE /* SomniAlertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomniAlertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A661B9E1C4F325000F1AEFE /* SomniAlertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomniAlertUITests.swift; sourceTree = "<group>"; };
 		9A661BA01C4F325000F1AEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A661BAD1C4F328B00F1AEFE /* somnialert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = somnialert.swift; sourceTree = "<group>"; };
+		9A661BAD1C4F328B00F1AEFE /* somnialert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = somnialert.swift; path = ../../SomniAlertLibrary/somnialert.swift; sourceTree = "<group>"; };
 		9AA2AA251C5161A200484869 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
