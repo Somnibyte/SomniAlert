@@ -65,8 +65,11 @@ class SomniAlert: UIView {
 		// Configurations for the slanted view
 		slantedView = UIView(frame: CGRect(x: -50, y: 0, width: self.frame.size.width * 2, height: 200))
 		slantedView.backgroundColor = UIColor(red: 0.204, green: 0.231, blue: 0.259, alpha: 1.00)
-		slantedView.transform = CGAffineTransformMakeRotation(50.0)
-    slantedView.layer.shouldRasterize = true
+        let degreesToRadians = { (x:Double) in
+           CGFloat(M_PI * (x) / 180.0)
+        }
+		slantedView.transform = CGAffineTransformMakeRotation(degreesToRadians(170))
+		slantedView.layer.shouldRasterize = true
 		self.addSubview(slantedView)
 
 		// Configurations for icons
@@ -89,7 +92,7 @@ class SomniAlert: UIView {
 		viewsDict["messageLabel"] = self.messageLabel
 
 		let slantedViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(-50)-[slantedView]-(-50)-|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: viewsDict)
-		let slantedViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(-40)-[slantedView]-210-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
+		let slantedViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(-40)-[slantedView]-(50)-[messageLabel]-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
 		self.addConstraints(slantedViewConstraint_H)
 		self.addConstraints(slantedViewConstraint_V)
 
