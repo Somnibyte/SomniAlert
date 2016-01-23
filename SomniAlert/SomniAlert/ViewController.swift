@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 		alert.setConstraints()
 
 		// Display the alert
-        alert.showAlert(typeOfAlert: .Notification, miniMessageUnderImage: "Hey!", messageToDisplay: "What's up")
+        alert.showAlert(typeOfAlert: .Notification, messageToDisplay: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in dolor eget dolor cursus cursus a eu nisi. Proin vulputate, augue a hendrerit dignissim, lectus dolor ullamcorper mi, a commodo nisl neque eget ex. Curabitur porta id dolor ut tempus. Sed semper ")
 
 	}
 

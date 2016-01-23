@@ -34,6 +34,11 @@ class SomniAlert: UIView {
 		case Notification
 	}
 
+	/**
+	 The message label is the message that is displayed on the alert itself.
+	 */
+	var messageLabel: UILabel = UILabel()
+
 	var closeButton: UIButton!
 
 	/**
@@ -69,6 +74,10 @@ class SomniAlert: UIView {
 		closeButton.addTarget(self, action: Selector("closeAlert"), forControlEvents: .TouchUpInside)
 		self.addSubview(closeButton)
 
+		// Configurations for the UILabels
+		self.messageLabel.numberOfLines = 8
+		self.addSubview(messageLabel)
+
 		// Auto-Layout configurations
 
 		// Slanted View
@@ -76,6 +85,7 @@ class SomniAlert: UIView {
 		var viewsDict = Dictionary<String, UIView>()
 		viewsDict["slantedView"] = self.slantedView
 		viewsDict["closeButton"] = self.closeButton
+		viewsDict["messageLabel"] = self.messageLabel
 
 		let slantedViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(-50)-[slantedView]-(-50)-|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: viewsDict)
 		let slantedViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(-40)-[slantedView]-210-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
@@ -96,6 +106,13 @@ class SomniAlert: UIView {
 		alertTypeImageView.center = CGPointMake(self.mainView.bounds.width / 2 - 30, 40)
 		self.addSubview(alertTypeImageView)
 
+		// Message label
+		self.messageLabel.translatesAutoresizingMaskIntoConstraints = false
+		let messageLabelContraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(10)-[messageLabel]-(10)-|", options: NSLayoutFormatOptions.AlignAllBottom, metrics: nil, views: viewsDict)
+		let messageLabelConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[messageLabel]-(10)-|", options: NSLayoutFormatOptions.AlignAllBottom, metrics: nil, views: viewsDict)
+		self.addConstraints(messageLabelContraint_H)
+		self.addConstraints(messageLabelConstraint_V)
+
 		// Hide the alert until activated
 		self.alpha = 0.0
 	}
@@ -114,8 +131,8 @@ class SomniAlert: UIView {
 		viewsDict["alertView"] = self
 
 		// Incorporate the auto layout mechanisms onto the mainView
-		let alertViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-30-[alertView]-30-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
-		let alertViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[alertView]-100-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
+		let alertViewConstraint_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(30)-[alertView]-(30)-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
+		let alertViewConstraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(100)-[alertView]-(100)-|", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewsDict)
 		self.mainView.addConstraints(alertViewConstraint_H)
 		self.mainView.addConstraints(alertViewConstraint_V)
 	}
@@ -123,7 +140,7 @@ class SomniAlert: UIView {
 	/**
 	 Displays the alert
 	 */
-    func showAlert(typeOfAlert alertType: alertMode, miniMessageUnderImage minimessage:String, messageToDisplay message: String) {
+	func showAlert(typeOfAlert alertType: alertMode, messageToDisplay message: String) {
 
 		// Setup the alert image and message
 		switch (alertType) {
@@ -136,6 +153,8 @@ class SomniAlert: UIView {
 		case .Trash:
 			self.alertTypeImageView.image = UIImage(named: "trash")
 		}
+
+		self.messageLabel.text = message
 
 		// Prepare the alert
 		self.visualEffect.effect = blurEffect
