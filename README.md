@@ -16,8 +16,8 @@ var alert = SomniAlert(frame: CGRect(), viewToSitOnTopOf: self.view)
 Add the newly initialized alert to your view via the `addSubview` function:
 
 ```swift
-	// Add the alert to your view
-		self.view.addSubview(alert)
+// Add the alert to your view
+self.view.addSubview(alert)
 ```
 
 In order for the alert to fit any users device nicly, you need to call the `setContraint` function. Otherwise if you want a custom width and height, simply edit the frame during initalization and do not call this function.
@@ -30,7 +30,7 @@ When you want to diplay the alert call the `showAlert` function. You need to pro
 
 ```swift
 // Display the alert
-        alert.showAlert(typeOfAlert: .Notification, messageToDisplay: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in dolor eget dolor cursus cursus a eu nisi. Proin vulputate, augue a hendrerit dignissim, lectus dolor ullamcorper mi, a commodo nisl neque eget ex. Curabitur porta id dolor ut tempus. Sed semper ")
+alert.showAlert(typeOfAlert: .Notification, messageToDisplay: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in dolor eget dolor cursus cursus a eu nisi. Proin vulputate, augue a hendrerit dignissim, lectus dolor ullamcorper mi, a commodo nisl neque eget ex. Curabitur porta id dolor ut tempus. Sed semper ")
 ```
 
 #License
