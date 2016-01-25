@@ -65,9 +65,9 @@ class SomniAlert: UIView {
 		// Configurations for the slanted view
 		slantedView = UIView(frame: CGRect(x: -50, y: 0, width: self.frame.size.width * 2, height: 200))
 		slantedView.backgroundColor = UIColor(red: 0.204, green: 0.231, blue: 0.259, alpha: 1.00)
-        let degreesToRadians = { (x:Double) in
-           CGFloat(M_PI * (x) / 180.0)
-        }
+		let degreesToRadians = { (x: Double) in
+			CGFloat(M_PI * (x) / 180.0)
+		}
 		slantedView.transform = CGAffineTransformMakeRotation(degreesToRadians(170))
 		slantedView.layer.shouldRasterize = true
 		self.addSubview(slantedView)
@@ -140,6 +140,7 @@ class SomniAlert: UIView {
 		self.mainView.addConstraints(alertViewConstraint_H)
 		self.mainView.addConstraints(alertViewConstraint_V)
 	}
+    
 
 	/**
 	 Displays the alert
@@ -171,6 +172,43 @@ class SomniAlert: UIView {
 			self.alpha = 1.0
 		}
 	}
+    
+    /**
+     Displays the alert and allows you to add a closure to specify what to do when the alert is done.
+     */
+    func showAlert(typeOfAlert alertType: alertMode, messageToDisplay message: String, onComplete:()->Void){
+        
+        // Setup the alert image and message
+        switch (alertType) {
+        case .Success:
+            self.alertTypeImageView.image = UIImage(named: "success")
+        case .Failure:
+            self.alertTypeImageView.image = UIImage(named: "failed")
+        case .Notification:
+            self.alertTypeImageView.image = UIImage(named: "notification")
+        case .Trash:
+            self.alertTypeImageView.image = UIImage(named: "trash")
+        }
+        
+        self.messageLabel.text = message
+        
+        // Prepare the alert
+        self.visualEffect.effect = blurEffect
+        self.visualEffect.frame = self.mainView.frame
+        
+        // Animate somnialert
+        UIView.animateWithDuration(1.0) { () -> Void in
+            self.mainView.insertSubview(self.visualEffect, belowSubview: self)
+            self.frame.origin.y += 10
+            self.alpha = 1.0
+        }
+        
+        // On Completion Handler
+        onComplete()
+    }
+
+    
+    
 
 	/**
 	 Closes the alert
