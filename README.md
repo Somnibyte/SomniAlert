@@ -37,7 +37,7 @@ alert.showAlert(typeOfAlert: .Notification, messageToDisplay: "Lorem ipsum dolor
 
 ### Motion Effect
 
-Somnialert gives you the ability to apply motion effects to your alert. These effects allow your alert to move around depending on how the user tilts their devices. Simply call the `createMotionEffect` function and specify the type of motion you would like (this is an enum that contains the following cases: **VerticalOnly**, **HoriziontalOnly** and **VerticalAndHoriziontal*). 
+Somnialert gives you the ability to apply motion effects to your alert. These effects allow your alert to move around depending on how the user tilts their devices. Simply call the `createMotionEffect` function and specify the type of motion you would like (this is an enum that contains the following cases: **VerticalOnly**, **HoriziontalOnly** and **VerticalAndHoriziontal**). 
 
 ```swift
    // Apply a mothion effect (optional)
