@@ -34,6 +34,24 @@ class SomniAlert: UIView {
         case Notification
     }
     
+    /** 
+        Motion modes
+    */
+    enum motionMode {
+        case HorizontalOnly
+        case VerticalOnly
+        case VerticalAndHorizontal
+    }
+    
+    let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+        type: .TiltAlongVerticalAxis)
+    let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+        type: .TiltAlongHorizontalAxis)
+    
+    // The values below determine the distance the alert moves when the user tilts their device
+    var verticalMinValue = -30, verticalMaxValue = 30, horizontalMinValue = -30, horizontalMaxValue = 30
+
+    
     /**
      The message label is the message that is displayed on the alert itself.
      */
@@ -208,7 +226,44 @@ class SomniAlert: UIView {
     }
     
     
+    func applyMotion(typeOfMotion:motionMode){
+        
+        // Create group to apply each motion to the modal
+        let group = UIMotionEffectGroup()
+        
+        
+        // Identify the type of motions desired
+        if typeOfMotion == .HorizontalOnly {
+            group.motionEffects = [self.horizontalMotionEffect]
+        }else if typeOfMotion == .VerticalOnly {
+            group.motionEffects = [self.verticalMotionEffect]
+        }else if typeOfMotion == .VerticalAndHorizontal {
+            group.motionEffects = [self.verticalMotionEffect,self.horizontalMotionEffect]
+        }
+        
+        // Apply the effects to the view
+        self.addMotionEffect(group)
+
+    }
     
+    func createMotionEffect(typeOfMotion mode:motionMode){
+        
+        if mode == .HorizontalOnly {
+            horizontalMotionEffect.minimumRelativeValue = horizontalMinValue
+            horizontalMotionEffect.maximumRelativeValue = horizontalMaxValue
+            applyMotion(.HorizontalOnly)
+        }else if mode == .VerticalOnly {
+            verticalMotionEffect.minimumRelativeValue = verticalMinValue
+            verticalMotionEffect.maximumRelativeValue = verticalMaxValue
+            applyMotion(.VerticalOnly)
+        }else if mode == .VerticalAndHorizontal {
+            horizontalMotionEffect.minimumRelativeValue = horizontalMinValue
+            horizontalMotionEffect.maximumRelativeValue = horizontalMaxValue
+            verticalMotionEffect.minimumRelativeValue = verticalMinValue
+            verticalMotionEffect.maximumRelativeValue = verticalMaxValue
+            applyMotion(.VerticalAndHorizontal)
+        }
+    }
     
     /**
      Closes the alert
