@@ -33,6 +33,31 @@ When you want to diplay the alert call the `showAlert` function. You need to pro
 alert.showAlert(typeOfAlert: .Notification, messageToDisplay: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in dolor eget dolor cursus cursus a eu nisi. Proin vulputate, augue a hendrerit dignissim, lectus dolor ullamcorper mi, a commodo nisl neque eget ex. Curabitur porta id dolor ut tempus. Sed semper ")
 ```
 
+# Optional Features
+
+### Motion Effect
+
+Somnialert gives you the ability to apply motion effects to your alert. These effects allow your alert to move around depending on how the user tilts their devices. Simply call the `createMotionEffect` function and specify the type of motion you would like (this is an enum that contains the following cases: **VerticalOnly**, **HoriziontalOnly** and **VerticalAndHoriziontal*). 
+
+```swift
+   // Apply a mothion effect (optional)
+   alert.createMotionEffect(typeOfMotion: .VerticalAndHorizontal)
+```
+
+### Customizing the distance of the motion effect
+
+There are 4 variables that dictate how the alert moves. Down below I've shown an example of editing all the attributes avialable. The **minimum** and **maximum** values represent the offsets that are applied to the alert. More information can be found on [here](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIInterpolatingMotionEffect_class/index.html#//apple_ref/occ/instp/UIInterpolatingMotionEffect/minimumRelativeValue).
+
+```swift
+  // Customizing the offsets
+   alert.horizontalMaxValue = 5
+   alert.horizontalMinValue = -5
+   alert.verticalMaxValue = 5
+   alert.verticalMinValue = 5
+```
+
+
+
 #License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
