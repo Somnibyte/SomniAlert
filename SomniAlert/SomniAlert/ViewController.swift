@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 		// After you add the alert to your view, call the "setConstraints" function
 		alert.setConstraints()
         
+        
         // Apply a mothion effect (optional)
         alert.createMotionEffect(typeOfMotion: .VerticalAndHorizontal)
         

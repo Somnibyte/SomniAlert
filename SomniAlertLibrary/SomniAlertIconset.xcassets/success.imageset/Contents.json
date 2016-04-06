@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "success.png",
+      "filename" : "ui-32px-glyph-1_check-square-9.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ui-48px-glyph-1_check-square-9.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ui-64px-glyph-1_check-square-9.png",
       "scale" : "3x"
     }
   ],
