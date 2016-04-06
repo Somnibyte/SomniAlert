@@ -1,7 +1,7 @@
 # SomniAlert (WIP)
 A beautiful UIAlertView-like modal made with swift
 
-![](http://i.imgur.com/CZ9RS0A.png)
+![](http://i.imgur.com/B2rSXyO.png)
 
 # Installation 
 I have not created a CocoaPod yet, so this project will have to manually be downloaded from this repository. 
