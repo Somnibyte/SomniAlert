@@ -97,8 +97,6 @@ class SomniAlert: UIView {
         
         
         // Auto-Layout configurations
-        
-        // Slanted View
         var viewsDict = Dictionary<String, UIView>()
         viewsDict["closeButton"] = self.closeButton
         viewsDict["messageLabel"] = self.messageLabel
